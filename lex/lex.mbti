@@ -1,0 +1,30 @@
+package moonbitlang/x/lex
+
+// Values
+
+// Types and methods
+pub struct Engine {
+  pub graph : Array[Array[Int]]
+  pub finalpoint : Array[Bool]
+}
+impl Engine {
+  run(Self, Lexbuf) -> Int
+}
+
+pub struct Lexbuf {
+  pub content : Bytes
+  pub ptr : Int
+}
+impl Lexbuf {
+  cur_ptr(Self) -> Int
+  from_bytes(Bytes) -> Self
+  set_ptr(Self, Int) -> Unit
+  step(Self) -> Unit
+}
+
+// Type aliases
+
+// Traits
+
+// Extension Methods
+
