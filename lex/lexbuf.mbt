@@ -34,3 +34,11 @@ pub fn set_ptr(self : Lexbuf, ptr : Int) -> Unit {
 pub fn step(self : Lexbuf) -> Unit {
   self.ptr += 1
 }
+
+pub fn subbytes(self : Lexbuf, head : Int, tail : Int) -> Bytes {
+  let bytes = Bytes::new(tail - head)
+  for p = head; p < tail; p = p + 1 {
+    bytes[p - head] = self.content[p]
+  }
+  bytes
+}

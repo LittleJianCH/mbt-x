@@ -4,11 +4,13 @@ package moonbitlang/x/lex
 
 // Types and methods
 pub struct Engine {
-  pub graph : Array[Array[Int]]
-  pub finalpoint : Array[Bool]
+  pub graph : Array[Array[(Int, Array[Array[Int]])]]
+  pub end_nodes : Array[(Int, Array[((Int, Int), (Int, Int))])?]
+  pub start_tags : Array[Int]
+  pub code_blocks_n : Int
 }
 impl Engine {
-  run(Self, Lexbuf) -> Int
+  run(Self, Lexbuf) -> (Int, Array[Bytes])
 }
 
 pub struct Lexbuf {
@@ -20,6 +22,7 @@ impl Lexbuf {
   from_bytes(Bytes) -> Self
   set_ptr(Self, Int) -> Unit
   step(Self) -> Unit
+  subbytes(Self, Int, Int) -> Bytes
 }
 
 // Type aliases
